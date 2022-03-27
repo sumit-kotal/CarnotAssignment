@@ -31,9 +31,9 @@ class RecordsAdapter(private val context: Context, private val recordslist: List
             binding.textCommodity.text = record.commodity
             binding.textVariety.text = "Variety - ${record.variety}"
             binding.textArrDate.text = record.arrivalDate
-            binding.textMinPrice.text = record.min_price.toString()
-            binding.textMaxPrice.text = record.max_price.toString()
-            binding.textModalPrice.text = record.modal_price.toString()
+            binding.textMinPrice.text = record.minPrice.toString()
+            binding.textMaxPrice.text = record.maxPrice.toString()
+            binding.textModalPrice.text = record.modalPrice.toString()
 
 
         }

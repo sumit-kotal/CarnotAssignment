@@ -32,7 +32,7 @@ class RetrofitServiceTest {
 
 
     @Test
-    fun `get all movie api test`() {
+    fun `get all record api test`() {
         runBlocking {
              val mockResponse = MockResponse()
             mockWebServer.enqueue(mockResponse.setBody("[]"))

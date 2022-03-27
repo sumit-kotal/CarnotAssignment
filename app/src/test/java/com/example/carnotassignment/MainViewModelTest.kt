@@ -1,4 +1,4 @@
-package com.velmurugan.mvvmwithkotlincoroutinesandretrofit
+package com.example.carnotassignment
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.carnotassignment.api.ApiServiceImp
@@ -48,7 +48,7 @@ class MainViewModelTest {
 
     @OptIn(ObsoleteCoroutinesApi::class, kotlinx.coroutines.FlowPreview::class)
     @Test
-    fun getAllMoviesTest() {
+    fun getAllRecordsTest() {
         runBlocking {
             Mockito.`when`(mainRepository.getList(0,100))
             mainViewModel.getResults(0,100)

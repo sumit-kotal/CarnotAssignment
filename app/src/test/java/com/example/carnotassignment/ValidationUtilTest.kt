@@ -9,17 +9,17 @@ import org.junit.runners.JUnit4
 @RunWith(JUnit4::class)
 class ValidationUtilTest {
     @Test
-    fun validateMovieTest() {
+    fun validateRecordTest() {
         val record = Records("testState","testDistrict","testMarket",
             "testCommodity","testVariety","testDate",100,100,100)
-        assertEquals(true, ValidationUtil.validateMovie(record))
+        assertEquals(true, ValidationUtil.validateRecord(record))
     }
 
     @Test
-    fun validateMovieEmptyTest() {
-        val movie = Records("testState","testDistrict","testMarket",
+    fun validateRecordEmptyTest() {
+        val record = Records("testState","testDistrict","testMarket",
             "","testVariety","",0,0,0)
-        assertEquals(false, ValidationUtil.validateMovie(movie))
+        assertEquals(false, ValidationUtil.validateRecord(record))
     }
 
 }

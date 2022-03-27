@@ -9,7 +9,7 @@ data class Records (
 	@SerializedName("commodity") val commodity : String,
 	@SerializedName("variety") val variety : String,
 	@SerializedName("arrival_date") val arrivalDate : String,
-	@SerializedName("min_price") val min_price : Int,
-	@SerializedName("max_price") val max_price : Int,
-	@SerializedName("modal_price") val modal_price : Int
+	@SerializedName("min_price") val minPrice : Int,
+	@SerializedName("max_price") val maxPrice : Int,
+	@SerializedName("modal_price") val modalPrice : Int
 )

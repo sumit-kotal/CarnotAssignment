@@ -1,4 +1,4 @@
-package com.velmurugan.mvvmwithkotlincoroutinesandretrofit
+package com.example.carnotassignment
 
 import com.example.carnotassignment.api.ApiService
 import com.example.carnotassignment.api.ApiServiceImp
@@ -31,7 +31,7 @@ class MainRepositoryTest {
     }
 
     @Test
-    fun `get all movie test`() {
+    fun `get all record test`() {
         runBlocking {
             Mockito.`when`(apiService.getMainList(0,100))
             val response = mainRepository.getList(0,100)

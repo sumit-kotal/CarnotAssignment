@@ -97,9 +97,9 @@ class MainActivity : AppCompatActivity() {
     private fun sortList(key: Int) {
         val sortedList =  when(key){
             0 -> pagesResultCopy
-            1 -> pagesResult.sortedBy { it.min_price }
-            2 -> pagesResult.sortedBy { it.max_price }
-            3 -> pagesResult.sortedBy { it.modal_price }
+            1 -> pagesResult.sortedBy { it.minPrice }
+            2 -> pagesResult.sortedBy { it.maxPrice }
+            3 -> pagesResult.sortedBy { it.modalPrice }
             else -> pagesResultCopy
         }
 

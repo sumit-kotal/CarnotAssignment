@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CarnotAssignment</string>
+    <array name="sort_keys">
+        <item>Sort By</item>
+        <item>Min. Price</item>
+        <item>Max. Price</item>
+        <item>Modal Price</item>
+    </array>
+</resources>

@@ -26,11 +26,10 @@ import kotlinx.coroutines.ObsoleteCoroutinesApi
 class MainActivity : AppCompatActivity() {
 
 
-    private val ROTATE_ANIMATION_DURATION = 800L
     private lateinit var binding: ActivityMainBinding
     private val mainViewModel: MainViewModel by viewModels()
-    var pagesResult = mutableListOf<Records>()
-    var pagesResultCopy = mutableListOf<Records>()
+    private var pagesResult = mutableListOf<Records>()
+    private var pagesResultCopy = mutableListOf<Records>()
 
     private var offSet = 0
     private var limit = 50
@@ -85,9 +84,7 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.sortSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-
-            }
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
 
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 showLoadingScreen()
@@ -115,11 +112,11 @@ class MainActivity : AppCompatActivity() {
         binding.recordsRecycler.visibility = View.GONE
         binding.progressImage.visibility = View.VISIBLE
         val rotate = RotateAnimation(
-            0F, 360F,
-            Animation.RELATIVE_TO_SELF, 0.5f,
-            Animation.RELATIVE_TO_SELF, 0.5f
+            0F, TRANSITION_DEGREES,
+            Animation.RELATIVE_TO_SELF, TRANSITION_PIVOT,
+            Animation.RELATIVE_TO_SELF, TRANSITION_PIVOT
         )
-        rotate.duration = ROTATE_ANIMATION_DURATION
+        rotate.duration = Companion.ROTATE_ANIMATION_DURATION
         rotate.repeatCount = Animation.INFINITE
         binding.progressImage.startAnimation(rotate)
     }
@@ -129,11 +126,19 @@ class MainActivity : AppCompatActivity() {
         binding.recordsRecycler.visibility = View.VISIBLE
         binding.progressImage.visibility = View.GONE
         val transition = Slide(Gravity.BOTTOM)
-        transition.duration = 2000
+        transition.duration = TRANSITION_DURATION
         transition.addTarget(binding.recordsRecycler)
         TransitionManager.beginDelayedTransition(binding.rootview as ViewGroup, transition)
         binding.recordsRecycler.visibility = View.VISIBLE
         adapter.notifyDataSetChanged()
+    }
+
+    companion object {
+        private const val ROTATE_ANIMATION_DURATION = 800L
+        private const val TRANSITION_DURATION = 2000L
+
+        private const val TRANSITION_DEGREES = 360F
+        private const val TRANSITION_PIVOT = 0.5f
     }
 
 }

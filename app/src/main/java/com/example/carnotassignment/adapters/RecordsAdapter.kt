@@ -6,8 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import coil.request.CachePolicy
-import coil.size.Scale
 import com.example.carnotassignment.R
 import com.example.carnotassignment.databinding.RecylerItemBinding
 import com.example.carnotassignment.models.Records
@@ -32,7 +30,7 @@ class RecordsAdapter(private val context: Context, private val recordslist: List
             binding.textMarket.text = record.market
             binding.textCommodity.text = record.commodity
             binding.textVariety.text = "Variety - ${record.variety}"
-            binding.textArrDate.text = record.arrival_date
+            binding.textArrDate.text = record.arrivalDate
             binding.textMinPrice.text = record.min_price.toString()
             binding.textMaxPrice.text = record.max_price.toString()
             binding.textModalPrice.text = record.modal_price.toString()

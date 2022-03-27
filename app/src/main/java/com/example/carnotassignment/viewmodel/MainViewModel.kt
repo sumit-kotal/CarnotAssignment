@@ -19,8 +19,6 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(private val mainRepository: MainRepository) :
     ViewModel() {
 
-    private val TAG = "MainViewModel"
-
     val dataResponse: MutableLiveData<ResponseData> = MutableLiveData()
 
     @ObsoleteCoroutinesApi
@@ -31,11 +29,14 @@ class MainViewModel @Inject constructor(private val mainRepository: MainReposito
             mainRepository.getList(offSet,limit)
                 .catch { e ->
                     Timber.d("$TAG -- ${e.message}")
-                    println("Error -- ${e.message}")
                 }.collect {
                     dataResponse.value = it
                 }
         }
+    }
+
+    companion object {
+        private const val TAG = "MainViewModel"
     }
 
 }

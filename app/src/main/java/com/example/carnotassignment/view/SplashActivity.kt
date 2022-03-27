@@ -13,8 +13,7 @@ import dagger.hilt.android.HiltAndroidApp
 
 @AndroidEntryPoint
 class SplashActivity : AppCompatActivity() {
-    val SPLASH_DELAY: Long = 3000 //Time delay to remove splash screen
-    lateinit var binding: ActivitySplashBinding
+    private lateinit var binding: ActivitySplashBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,15 +28,20 @@ class SplashActivity : AppCompatActivity() {
             val i = Intent(this, MainActivity::class.java)
             startActivity(i)
             finish()
-        }, SPLASH_DELAY)
+        }, Companion.SPLASH_DELAY)
     }
 
     private fun showLoadingScreen() {
         val hyperspaceJumpAnimation: Animation = AnimationUtils.loadAnimation(
             this, R.anim.hyperspace_anim
         )
-        hyperspaceJumpAnimation.duration = 500L
+        hyperspaceJumpAnimation.duration = ANIMATION_TIME
         hyperspaceJumpAnimation.repeatCount = Animation.INFINITE
         binding.splashImage.startAnimation(hyperspaceJumpAnimation)
+    }
+
+    companion object {
+        const val SPLASH_DELAY: Long = 3000 //Time delay to remove splash screen
+        const val ANIMATION_TIME: Long = 500
     }
 }
